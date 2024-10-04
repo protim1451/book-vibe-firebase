@@ -16,6 +16,7 @@ import TopBooks from './components/TopBooks/TopBooks';
 import FAQ from './components/Faq/Faq';
 import ListedBooks from './components/ListedBooks/ListedBooks';
 import PagesToRead from './components/PagesToRead/PagesToRead';
+import FirebaseProvider from './FirebaseProvider/FirebaseProvider';
 
 const router = createBrowserRouter([
   {
@@ -59,6 +60,8 @@ const router = createBrowserRouter([
 
 createRoot(document.getElementById('root')).render(
   <React.StrictMode>
-    <RouterProvider router={router}></RouterProvider>
+    <FirebaseProvider>
+      <RouterProvider router={router}></RouterProvider>
+    </FirebaseProvider>
   </React.StrictMode>,
 )
