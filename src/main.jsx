@@ -51,11 +51,11 @@ const router = createBrowserRouter([
       },
       {
         path: "/listedbooks",
-        element: <ListedBooks></ListedBooks>
+        element: <PrivateRoute><ListedBooks></ListedBooks></PrivateRoute>,
       },
       {
         path: "/pagestoread",
-        element: <PagesToRead></PagesToRead>
+        element: <PrivateRoute><PagesToRead></PagesToRead></PrivateRoute>,
       },
       {
         path: '/login',
