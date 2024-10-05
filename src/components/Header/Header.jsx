@@ -1,8 +1,16 @@
-import { NavLink } from "react-router-dom";
-
-import { useState } from "react";
+import { Link, NavLink } from "react-router-dom";
+import "./Navbar.css";
+import { useEffect, useState } from "react";
+import useAuth from "../Hooks/UseAuth";
 
 const Header = () => {
+
+    const { logOut, user } = useAuth();
+    const [currentUser, setCurrentUser] = useState(null);
+
+    useEffect(() => {
+        setCurrentUser(user); // Update the currentUser state with the latest user information
+    }, [user]);
 
     const [isDropdownOpen, setIsDropdownOpen] = useState(false);
 
@@ -42,10 +50,27 @@ const Header = () => {
                         {links}
                     </ul>
                 </div>
-                <div className="navbar-end gap-1">
-                    <a className="btn text-white bg-[#17BE0A]">Sign In</a>
+                {/* <div className="navbar-end gap-1">
+                    <Link to='/login'><a className="btn text-white bg-[#17BE0A]">Sign In</a></Link>
                     <a className="btn text-white bg-[#59C6D2]">Buy Book</a>
-                </div>
+                </div> */}
+                {currentUser? (
+                    <div className="navbar-end relative">
+                        <div className="profile-wrapper">
+                            <img className="rounded-full w-10 h-10 cursor-pointer" src={currentUser.photoURL} alt={currentUser.displayName} />
+                            <span className="profile-name">{currentUser.displayName}</span>
+                        </div>
+                        <Link>
+                            <button onClick={logOut} className="btn bg-[#2CCCD3]">Log Out</button>
+                        </Link>
+                    </div>
+                ) : (
+                    <div className="navbar-end">
+                        <Link to='/login'>
+                            <button className="btn bg-[#2CCCD3]">Log In</button>
+                        </Link>
+                    </div>
+                )}
             </div>
         </div>
     );
