@@ -17,6 +17,9 @@ import FAQ from './components/Faq/Faq';
 import ListedBooks from './components/ListedBooks/ListedBooks';
 import PagesToRead from './components/PagesToRead/PagesToRead';
 import FirebaseProvider from './FirebaseProvider/FirebaseProvider';
+import PrivateRoute from './routes/PrivateRoutes';
+import Login from './components/Login/Login';
+import Register from './components/Register/Register';
 
 const router = createBrowserRouter([
   {
@@ -30,7 +33,7 @@ const router = createBrowserRouter([
       },
       {
         path: "/book/:bookId",
-        element: <BookDetails></BookDetails>,
+        element: <PrivateRoute><BookDetails></BookDetails></PrivateRoute>,
         loader: () => fetch('../book.json'),
       },
       {
@@ -53,7 +56,15 @@ const router = createBrowserRouter([
       {
         path: "/pagestoread",
         element: <PagesToRead></PagesToRead>
-      }
+      },
+      {
+        path: '/login',
+        element: <Login></Login>,
+      },
+      {
+        path: '/register',
+        element: <Register></Register>,
+      },
     ]
   },
 ]);
