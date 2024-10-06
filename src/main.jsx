@@ -34,7 +34,7 @@ const router = createBrowserRouter([
       {
         path: "/book/:bookId",
         element: <PrivateRoute><BookDetails></BookDetails></PrivateRoute>,
-        loader: () => fetch('../book.json'),
+        loader: () => fetch('https://book-vibe-backend.vercel.app/api/books'),
       },
       {
         path: "/about",

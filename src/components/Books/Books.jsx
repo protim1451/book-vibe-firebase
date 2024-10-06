@@ -5,7 +5,7 @@ const Books = () => {
     const [books, setBooks] = useState([]);
 
     useEffect(()=>{
-        fetch('book.json')
+        fetch('https://book-vibe-backend.vercel.app/api/books')
         .then(res => res.json())
         .then(data => setBooks(data));
     },[])
