@@ -2,10 +2,12 @@
 BookVibe is a web application for book enthusiasts to discover, review, and track their favorite books.
 
 # Live Site
-https://bootcamp-book-vibe.netlify.app
+(https://book-vibe-3f6df.firebaseapp.com)
 
 # Features
 Navbar: Navigate easily through the website with a user-friendly navbar.
+
+Sign Up: Sign Up with email/google/github
 
 Banner: Engage with captivating banners that encourage exploration of listed books.
 
@@ -34,5 +36,5 @@ Responsive Design: Enjoy a seamless browsing experience on desktop and mobile de
 
 #### Local Storage
 
-#### Netlify(Hosting)
+#### Firebase Authentication
 
